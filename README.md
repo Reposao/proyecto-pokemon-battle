@@ -160,3 +160,13 @@ proyecto_final/
 │
 ├── mix.exs
 └── README.md
+
+## Documentación adicional
+
+El proyecto incluye documentación complementaria en la carpeta `docs/`:
+
+- `docs/guia_ejecucion.md`: comandos para instalar, compilar, probar y ejecutar el proyecto.
+- `docs/nodos_distribuidos.md`: explicación de la ejecución distribuida con nodos Elixir.
+- `docs/roles_equipo.md`: roles generales del equipo.
+- `docs/responsabilidades_tecnicas.md`: responsabilidades técnicas por integrante.
+- `docs/evidencias_pruebas.md`: evidencias de compilación, pruebas, ejecución local y nodos.
