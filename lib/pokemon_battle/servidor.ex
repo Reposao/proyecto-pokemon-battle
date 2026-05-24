@@ -627,6 +627,21 @@ end
     IO.puts("Uso correcto: unirse_sala_intercambio <codigo>")
     usuario_actual
   end
+    defp procesar_comando(["ofrecer_pokemon", _id_pokemon], nil) do
+    IO.puts("Primero debes iniciar sesión.")
+    nil
+  end
+
+  defp procesar_comando(["ofrecer_pokemon", id_pokemon], usuario_actual) do
+    case GestorIntercambios.codigo_sala_usuario(usuario_actual) do
+      {:ok, codigo} ->
+        procesar_comando(["ofrecer_pokemon", codigo, id_pokemon], usuario_actual)
+
+      {:error, razon} ->
+        IO.puts("Error al ofrecer Pokémon: #{inspect(razon)}")
+        usuario_actual
+    end
+  end
 
   defp procesar_comando(["ofrecer_pokemon", _codigo, _id_pokemon], nil) do
     IO.puts("Primero debes iniciar sesión.")
@@ -654,6 +669,21 @@ end
   defp procesar_comando(["ofrecer_pokemon" | _], usuario_actual) do
     IO.puts("Uso correcto: ofrecer_pokemon <codigo> <id_pokemon>")
     usuario_actual
+  end
+    defp procesar_comando(["confirmar_intercambio"], nil) do
+    IO.puts("Primero debes iniciar sesión.")
+    nil
+  end
+
+  defp procesar_comando(["confirmar_intercambio"], usuario_actual) do
+    case GestorIntercambios.codigo_sala_usuario(usuario_actual) do
+      {:ok, codigo} ->
+        procesar_comando(["confirmar_intercambio", codigo], usuario_actual)
+
+      {:error, razon} ->
+        IO.puts("Error al confirmar intercambio: #{inspect(razon)}")
+        usuario_actual
+    end
   end
 
   defp procesar_comando(["confirmar_intercambio", _codigo], nil) do
@@ -692,6 +722,21 @@ end
     IO.puts("Uso correcto: confirmar_intercambio <codigo>")
     usuario_actual
   end
+    defp procesar_comando(["cancelar_intercambio"], nil) do
+    IO.puts("Primero debes iniciar sesión.")
+    nil
+  end
+
+  defp procesar_comando(["cancelar_intercambio"], usuario_actual) do
+    case GestorIntercambios.codigo_sala_usuario(usuario_actual) do
+      {:ok, codigo} ->
+        procesar_comando(["cancelar_intercambio", codigo], usuario_actual)
+
+      {:error, razon} ->
+        IO.puts("Error al cancelar intercambio: #{inspect(razon)}")
+        usuario_actual
+    end
+  end
 
   defp procesar_comando(["cancelar_intercambio", _codigo], nil) do
     IO.puts("Primero debes iniciar sesión.")
@@ -713,6 +758,22 @@ end
   defp procesar_comando(["cancelar_intercambio" | _], usuario_actual) do
     IO.puts("Uso correcto: cancelar_intercambio <codigo>")
     usuario_actual
+  end
+  
+  defp procesar_comando(["estado_intercambio"], nil) do
+    IO.puts("Primero debes iniciar sesión.")
+    nil
+  end
+
+  defp procesar_comando(["estado_intercambio"], usuario_actual) do
+    case GestorIntercambios.codigo_sala_usuario(usuario_actual) do
+      {:ok, codigo} ->
+        procesar_comando(["estado_intercambio", codigo], usuario_actual)
+
+      {:error, razon} ->
+        IO.puts("Error al consultar estado de intercambio: #{inspect(razon)}")
+        usuario_actual
+    end
   end
 
   defp procesar_comando(["estado_intercambio", codigo], usuario_actual) do
