@@ -171,3 +171,4 @@ El proyecto incluye documentación complementaria en la carpeta `docs/`:
 - `docs/responsabilidades_tecnicas.md`: responsabilidades técnicas por integrante.
 - `docs/evidencias_pruebas.md`: evidencias de compilación, pruebas, ejecución local y nodos.
 - `docs/pruebas_exunit.md`: explicación de las pruebas unitarias y validaciones del sistema.
+- `docs/arquitectura_otp.md`: explicación de la arquitectura OTP, GenServer, DynamicSupervisor y nodos distribuidos.
